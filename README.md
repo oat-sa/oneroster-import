@@ -1,3 +1,4 @@
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/d8351b7ac84046198c36ca11c7bdcf45)](https://www.codacy.com/app/ionutpad/oneroster-import?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=oat-sa/oneroster-import&amp;utm_campaign=Badge_Grade)
 ## Import CSV files using OneRoster V1 standard
 
 ###### More Information about the standard can be found here: https://www.imsglobal.org/lis/imsOneRosterv1p0/imsOneRosterCSV-v1p0.html#_Toc421598315
