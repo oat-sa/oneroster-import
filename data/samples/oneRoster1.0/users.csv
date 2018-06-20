@@ -1,0 +1,3 @@
+sourcedId,status,dateLastModified,orgSourcedIds,role,username,userId,givenName,familyName,identifier,email,sms,phone,agents,ext_imagineLearning_databaseId,ext_imagineLearning_ssoId,ext_imagineLearning_studentPassword,ext_imagineLearning_studentGrade,ext_imagineLearning_Language,ext_tao_userMotherName,ext_tao_userFatherName
+user1,,,12345,student,ionut,abc,ionut,padurariu,user identifier,,,,,,,,,,metadata.value1,metadata.value2
+user2,,,54321,student,ionut2,abc,ionut2,padurariu,user identifier 2,,,,,,,,,,,

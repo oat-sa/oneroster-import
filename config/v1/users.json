@@ -1,0 +1,86 @@
+[
+  {
+    "columnId" :"sourcedId",
+    "required" : true,
+    "format" :"string",
+    "description" :"Unique ID for the user. SourcedId is used in other files and must be unique across all users,"
+  },
+  {
+    "columnId" :"status",
+    "required" :false,
+    "format" :"string",
+    "description" :"“active” | “inactive” | “tobedeleted”. A tobedeleted object may be deleted in receiving systems if it already exists"
+  },
+  {
+    "columnId" :"dateLastModified",
+    "required" :false,
+    "format" :"date",
+    "description" :"The date that this record was last modified. (FORMAT IS YYYY-MM-DD)"
+  },
+  {
+    "columnId" :"orgSourcedIds",
+    "required" :true,
+    "format" :"string",
+    "description" :"SourcedIds of the Organizations to which this user belongs. If multiple Ids are required then use double quotes and separate with commas.(Note in most in cases, it is expected that users will belong to a single school)."
+  },
+  {
+    "columnId" :"role",
+    "required" :true,
+    "format" :"string",
+    "description" :"“teacher”, “student”, “parent”, “guardian”, “relative”, “aide”, “administrator”"
+  },
+  {
+    "columnId" :"username",
+    "required" :true,
+    "format" :"string",
+    "description" :"Username"
+  },
+  {
+    "columnId" :"userId",
+    "required" :false,
+    "format" :"string",
+    "description" :"external machine readable id (e.g. LDAP id, LTI id) for this user, to be used if the sourcedId should not be used."
+  },
+  {
+    "columnId" :"givenName",
+    "required" :true,
+    "format" :"string",
+    "description" :"User’s first name"
+  },
+  {
+    "columnId" :"familyName",
+    "required" :true,
+    "format" :"string",
+    "description" :"User’s surname"
+  },
+  {
+    "columnId" :"identifier",
+    "required" :false,
+    "format" :"string",
+    "description" :"Identifier for the user with a human readable meaning"
+  },
+  {
+    "columnId" :"email",
+    "required" :false,
+    "format" :"string",
+    "description" :"Email address for the user"
+  },
+  {
+    "columnId" :"sms",
+    "required" :false,
+    "format" :"string",
+    "description" :"SMS address for the user"
+  },
+  {
+    "columnId" :"phone",
+    "required" :false,
+    "format" :"string",
+    "description" :"Phone number for the user"
+  },
+  {
+    "columnId" :"agents",
+    "required" :false,
+    "format" :"string",
+    "description" :"SourcedIds of the users to which this user has a relationship. If multiple Ids are required then use double quotes and separate with commas.Note: In  most cases this will be for indicating parental relationships"
+  }
+]

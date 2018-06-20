@@ -1,0 +1,50 @@
+[
+  {
+    "columnId" :"sourcedId",
+    "required" :true,
+    "format" :"string",
+    "description" :"SourcedId of this academicSession. AcademicSessions are used in other files and need to be unique across all academicSessions."
+  },
+  {
+    "columnId" :"status",
+    "required" :false,
+    "format" :"string",
+    "description" :"“active” | “inactive” | “tobedeleted”. A tobedeleted object may be deleted in receiving systems if it already exists"
+  },
+  {
+    "columnId" :"dateLastModified",
+    "required" :false,
+    "format" :"date",
+    "description" :"The date that this record was last modified. (FORMAT IS YYYY-MM-DD)"
+  },
+  {
+    "columnId" :"title",
+    "required" :true,
+    "format" :"string",
+    "description" :"Name or title of the grading period"
+  },
+  {
+    "columnId" :"type",
+    "required" :true,
+    "format" :"string",
+    "description" :"“term”, “gradingPeriod”, “schoolYear”, “semester”"
+  },
+  {
+    "columnId" :"startDate",
+    "required" :true,
+    "format" :"date",
+    "description" :"Start date"
+  },
+  {
+    "columnId" :"endDate",
+    "required" :true,
+    "format" :"string",
+    "description" :"End date"
+  },
+  {
+    "columnId" :"parentSourcedId",
+    "required" :false,
+    "format" :"string",
+    "description" :"Sourced id of parent of this academic session"
+  }
+]

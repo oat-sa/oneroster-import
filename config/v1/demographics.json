@@ -1,0 +1,98 @@
+[
+  {
+    "columnId" :"userSourcedId",
+    "required" :true,
+    "format" :"string",
+    "description" :"SourcedId of the user to which the demographcis refer. Typically this will be a student."
+  },
+  {
+    "columnId" :"status",
+    "required" :false,
+    "format" :"string",
+    "description" :"“active” | “inactive” | “tobedeleted”. A tobedeleted object may be deleted in receiving systems if it already exists"
+  },
+  {
+    "columnId" :"dateLastModified",
+    "required" :false,
+    "format" :"date",
+    "description" :"The date that this record was last modified. (FORMAT IS YYYY-MM-DD)"
+  },
+  {
+    "columnId" :"birthdate",
+    "required" :true,
+    "format" :"date",
+    "description" :"Student’s date of birth"
+  },
+  {
+    "columnId" :"sex",
+    "required" :true,
+    "format" :"boolean",
+    "description" :"“Female” | “Male”"
+  },
+  {
+    "columnId" :"americanIndianOrAlaskaNative",
+    "required" :true,
+    "format" :"boolean",
+    "description" :""
+  },
+  {
+    "columnId" :"asian",
+    "required" :true,
+    "format" :"boolean",
+    "description" :""
+  },
+  {
+    "columnId" :"blackOrAfricanAmerican",
+    "required" :true,
+    "format" :"boolean",
+    "description" :""
+  },
+  {
+    "columnId" :"nativeHawaiianOrOtherPacificIslander",
+    "required" :true,
+    "format" :"boolean",
+    "description" :""
+  },
+  {
+    "columnId" :"white",
+    "required" :true,
+    "format" :"boolean",
+    "description" :""
+  },
+  {
+    "columnId" :"demographicRaceTwoOrMoreRaces",
+    "required" :true,
+    "format" :"boolean",
+    "description" :""
+  },
+  {
+    "columnId" :"hispanicOrLatinoEthnicity",
+    "required" :true,
+    "format" :"boolean",
+    "description" :""
+  },
+  {
+    "columnId" :"countryOfBirthCode",
+    "required" :true,
+    "format" :"string",
+    "description" :"Vocabulary – https://ceds.ed.gov/CEDSElementDetails.aspx?TermxTopicId=20002"
+  },
+  {
+    "columnId" :"stateOfBirthAbbreviation",
+    "required" :false,
+    "format" :"string",
+    "description" :"Vocabulary – https://ceds.ed.gov/CEDSElementDetails.aspx?TermxTopicId=20837 NOTE: For US and US territories, this field should be considered mandatory.For outside of the US, this field is optional."
+  },
+  {
+    "columnId" :"cityOfBirth",
+    "required" :true,
+    "format" :"string",
+    "description" :""
+  },
+  {
+    "columnId" :"publicSchoolResidenceStatus",
+    "required" :true,
+    "format" :"string",
+    "description" :"Vocabulary - https://ceds.ed.gov/CEDSElementDetails.aspx?TermxTopicId=20863"
+  }
+]

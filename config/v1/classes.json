@@ -1,0 +1,74 @@
+[
+  {
+    "columnId" :"sourcedId",
+    "required" :true,
+    "format" :"string",
+    "description" :"Unique ID for the class. SourcedId is used in other files and must be unique across all classes."
+  },
+  {
+    "columnId" :"status",
+    "required": false,
+    "format" :"string",
+    "description" :"“active” | “inactive” | “tobedeleted”. A tobedeleted object may be deleted in receiving systems if it already exists"
+  },
+  {
+    "columnId" :"dateLastModified",
+    "required" :false,
+    "format" : "date",
+    "description" :"The date that this record was last modified. (FORMAT IS YYYY-MM-DD)"
+  },
+  {
+    "columnId" :"title",
+    "required" : true,
+    "format" :"string",
+    "description" :"Name of this class"
+  },
+  {
+    "columnId" :"grade",
+    "required" :false,
+    "format" : "string",
+    "description" : "Grade (i.e. 9 or range 9-12)"
+  },
+  {
+    "columnId" :"courseSourcedId",
+    "required" :false,
+    "format" :"string",
+    "description" :"SourcedId of the course of which this class is an instance"
+  },
+  {
+    "columnId" :"classCode",
+    "required" :false,
+    "format" :"string",
+    "description" :"Human readable code used to help identify this class"
+  },
+  {
+    "columnId" :"classType",
+    "required" :true,
+    "format" :"string",
+    "description" :"“homeroom”, “scheduled”"
+  },
+  {
+    "columnId" :"location",
+    "required" :false,
+    "format" :"string",
+    "description" :"Human readable description of where the class is physically located"
+  },
+  {
+    "columnId" :"schoolSourcedId",
+    "required" :true,
+    "format" :"string",
+    "description" :"SourcedId of the organization which teaches this class"
+  },
+  {
+    "columnId" :"termSourcedId",
+    "required" :true,
+    "format" :"string",
+    "description" :"SourcedId of the academicSessions(s) in which the class is taught. If more than one term is needed, use double quotes and delimit with commas, (per RFC 4180)Examples:“1,2”1“1,4,8”"
+  },
+  {
+    "columnId" :"subjects",
+    "required" :false,
+    "format" :"string",
+    "description" :"Subject name(s). If more than one subject is needed, use double quotes, and delimit with commas (per RFC 4180):Examples:“chemistry, physics”physics“music, drama, poetry”"
+  }
+]

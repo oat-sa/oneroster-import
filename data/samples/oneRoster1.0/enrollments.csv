@@ -1,0 +1,4 @@
+sourcedId,classSourcedId,schoolSourcedId,userSourcedId,role,status,dateLastModified,primary
+enrol1,class1,12345,user1,student,active,,
+enrol2,class2,12345,user1,student,,,
+enrol3,class3,54321,user2,student,active,,

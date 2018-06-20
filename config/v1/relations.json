@@ -1,0 +1,74 @@
+{
+  "orgs": {
+    "relations": {
+      "classes": {
+        "index": "schoolSourcedId"
+      },
+      "users": {
+        "index": "orgSourcedIds",
+        "inLineIds": true
+      },
+      "enrollments": {
+        "index": "schoolSourcedId"
+      },
+      "courses": {
+        "index": "orgSourcedId"
+      }
+    }
+  },
+  "classes": {
+    "relations": {
+      "orgs": {
+        "index": "schoolSourcedId"
+      },
+      "enrollments": {
+        "index": "classSourcedId"
+      },
+      "academicSessions":{
+        "index": "termSourcedId",
+        "inLineIds": true
+      }
+    }
+  },
+  "users": {
+    "relations": {
+      "orgs": {
+        "index": "orgSourcedIds",
+        "inLineIds": true
+      },
+      "demographics": {
+        "index": "userSourcedId"
+      },
+      "enrollments":{
+        "index":"userSourcedId"
+      }
+    }
+  },
+  "courses": {
+    "relations": {
+      "orgs": {
+        "index": "orgSourcedId"
+      }
+    }
+  },
+  "enrollments": {
+    "relations": {
+      "classes": {
+        "index": "classSourcedId"
+      },
+      "orgs": {
+        "index": "schoolSourcedId"
+      },
+      "users": {
+        "index": "userSourcedId"
+      }
+    }
+  },
+  "demographics": {
+    "relations": {
+      "users": {
+        "index": "userSourcedId"
+      }
+    }
+  }
+}

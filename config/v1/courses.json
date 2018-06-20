@@ -1,0 +1,62 @@
+[
+  {
+    "columnId": "sourcedId",
+    "required": true,
+    "format": "string",
+    "description":"Enter the number that has been assigned to the course by the district or by the district SIS. In this and other files, you use this number to assign users to a course. This number is a primary identifier; it uniquely identifies the course and will not change."
+  },
+  {
+    "columnId": "status",
+    "required": false,
+    "format": "string",
+    "description":"“active” | “inactive” | “tobedeleted”. A tobedeleted object may be deleted in receiving systems if it already exists"
+  },
+  {
+    "columnId": "dateLastModified",
+    "required": false,
+    "format": "date",
+    "description":"The date that this record was last modified. (FORMAT IS YYYY-MM-DD)"
+  },
+  {
+    "columnId": "schoolYearId",
+    "required": false,
+    "format": "string",
+    "description":"School year in which course runs. This the sourcedId of an academic Session (see below)"
+  },
+  {
+    "columnId": "metadata.duration",
+    "required": false,
+    "format": "string",
+    "description":"Description of how long the course runs for (e.g. two weeks, one semester)."
+  },
+  {
+    "columnId": "title",
+    "required": true,
+    "format": "string",
+    "description":"Name of the course"
+  },
+  {
+    "columnId": "courseCode",
+    "required": false,
+    "format": "string",
+    "description":"Human readable course code"
+  },
+  {
+    "columnId": "grade",
+    "required": false,
+    "format": "string",
+    "description":"Grade (i.e. 9 or range 9-12)"
+  },
+  {
+    "columnId": "orgSourcedId",
+    "required": false,
+    "format": "string",
+    "description":"SourcedId of the org to which this course belongs. This may be a district level org Id."
+  },
+  {
+    "columnId": "subjects",
+    "required": false,
+    "format": "string",
+    "description":"ubject name(s). If more than one subject is needed, use double quotes, and separate with commas (per RFC 4180):Examples:“chemistry, physics”physics“music, drama, poetry”"
+  }
+]
