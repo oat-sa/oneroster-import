@@ -42,7 +42,7 @@ class ImportServiceTest extends TestCase
         /** @var ClassRoom $class */
         $class = $oneOrg->getClasses()->first();
         $this->assertSame('class1', $class->getId());
-        $this->assertCount(1, $class->getOrgs());
+        $this->assertInstanceOf(Organisation::class, $class->getOrg());
         $this->assertCount(1, $class->getEnrollments());
 
         /** @var User $user */
@@ -54,9 +54,9 @@ class ImportServiceTest extends TestCase
         /** @var Enrollment $enroll */
         $enroll = $oneOrg->getEnrollments()->first();
         $this->assertSame('enrol1', $enroll->getId());
-        $this->assertCount(1, $enroll->getUsers());
-        $this->assertCount(1, $enroll->getClasses());
-        $this->assertCount(1, $enroll->getOrgs());
+        $this->assertInstanceOf(User::class, $enroll->getUser());
+        $this->assertInstanceOf(ClassRoom::class, $enroll->getClass());
+        $this->assertInstanceOf(Organisation::class, $enroll->getOrg());
     }
 
     protected function assertOrganisationCollection($organisations)

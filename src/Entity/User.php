@@ -9,7 +9,7 @@ class User extends AbstractEntity
      */
     public function getOrgs()
     {
-        return $this->getParentRelationEntities(Organisation::class);
+        return $this->getParentRelationEntity(Organisation::class, true);
     }
 
     /**

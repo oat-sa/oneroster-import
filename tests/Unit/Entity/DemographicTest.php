@@ -5,6 +5,7 @@ namespace oat\OneRoster\Tests\Unit\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use oat\OneRoster\Entity\Demographic;
 use oat\OneRoster\Entity\RelationConfig;
+use oat\OneRoster\Entity\User;
 use oat\OneRoster\Storage\StorageInterface;
 use PHPUnit\Framework\TestCase;
 
@@ -15,7 +16,7 @@ class DemographicTest extends TestCase
     {
         $entity = $this->getEntity('userSourcedId');
 
-        $this->assertInstanceOf(ArrayCollection::class, $entity->getUsers());
+        $this->assertInstanceOf(User::class, $entity->getUser());
     }
 
     public function testGetType()

@@ -48,6 +48,6 @@ $oneOrg->getEnrollments();
 ```
 Circular 
 ```php
-$oneOrg === $oneOrg->getClasses()->first()->getOrgs()->first();
+$oneOrg === $oneOrg->getClasses()->first()->getOrg();
 ```
 > More information about relations can be found in config/v1/relations.json

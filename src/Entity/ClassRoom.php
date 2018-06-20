@@ -7,9 +7,9 @@ class ClassRoom extends AbstractEntity
     /**
      * @inheritdoc
      */
-    public function getOrgs()
+    public function getOrg()
     {
-        return $this->getParentRelationEntities(Organisation::class);
+        return $this->getParentRelationEntity(Organisation::class);
     }
 
     /**
@@ -23,9 +23,9 @@ class ClassRoom extends AbstractEntity
     /**
      * @inheritdoc
      */
-    public function getAcademicSessions()
+    public function getAcademicSession()
     {
-        return $this->getParentRelationEntities(AcademicSession::class);
+        return $this->getParentRelationEntity(AcademicSession::class);
     }
 
     /** @return  string */

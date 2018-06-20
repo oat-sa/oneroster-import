@@ -3,8 +3,11 @@
 namespace oat\OneRoster\Tests\Unit\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
+use oat\OneRoster\Entity\ClassRoom;
 use oat\OneRoster\Entity\Enrollment;
+use oat\OneRoster\Entity\Organisation;
 use oat\OneRoster\Entity\RelationConfig;
+use oat\OneRoster\Entity\User;
 use oat\OneRoster\Storage\StorageInterface;
 use PHPUnit\Framework\TestCase;
 
@@ -18,7 +21,7 @@ class EnrollmentTest extends TestCase
     {
         $entity = $this->getEntity('schoolSourcedId');
 
-        $this->assertInstanceOf(ArrayCollection::class, $entity->getOrgs());
+        $this->assertInstanceOf(Organisation::class, $entity->getOrg());
     }
 
     /**
@@ -28,7 +31,7 @@ class EnrollmentTest extends TestCase
     {
         $entity = $this->getEntity('classSourcedId');
 
-        $this->assertInstanceOf(ArrayCollection::class, $entity->getClasses());
+        $this->assertInstanceOf(ClassRoom::class, $entity->getClass());
     }
 
     /**
@@ -38,7 +41,7 @@ class EnrollmentTest extends TestCase
     {
         $entity = $this->getEntity('userSourcedId');
 
-        $this->assertInstanceOf(ArrayCollection::class, $entity->getUsers());
+        $this->assertInstanceOf(User::class, $entity->getUser());
     }
 
     public function testGetType()

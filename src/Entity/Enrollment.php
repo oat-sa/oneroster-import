@@ -7,25 +7,25 @@ class Enrollment extends AbstractEntity
     /**
      * @inheritdoc
      */
-    public function getOrgs()
+    public function getOrg()
     {
-        return $this->getParentRelationEntities(Organisation::class);
+        return $this->getParentRelationEntity(Organisation::class);
     }
 
     /**
      * @inheritdoc
      */
-    public function getClasses()
+    public function getClass()
     {
-        return $this->getParentRelationEntities(ClassRoom::class);
+        return $this->getParentRelationEntity(ClassRoom::class);
     }
 
     /**
      * @inheritdoc
      */
-    public function getUsers()
+    public function getUser()
     {
-        return $this->getParentRelationEntities(User::class);
+        return $this->getParentRelationEntity(User::class);
     }
 
     /** @return  string */

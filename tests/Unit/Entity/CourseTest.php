@@ -4,6 +4,7 @@ namespace oat\OneRoster\Tests\Unit\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use oat\OneRoster\Entity\Course;
+use oat\OneRoster\Entity\Organisation;
 use oat\OneRoster\Entity\RelationConfig;
 use oat\OneRoster\Storage\StorageInterface;
 use PHPUnit\Framework\TestCase;
@@ -15,7 +16,7 @@ class CourseTest extends TestCase
     {
         $entity = $this->getEntity('orgSourcedId');
 
-        $this->assertInstanceOf(ArrayCollection::class, $entity->getOrgs());
+        $this->assertInstanceOf(Organisation::class, $entity->getOrg());
     }
 
     public function testGetType()

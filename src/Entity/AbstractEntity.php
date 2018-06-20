@@ -84,28 +84,28 @@ abstract class AbstractEntity implements EntityInterface
     }
 
     /**
-     * @param string $className
-     * @return \Doctrine\Common\Collections\ArrayCollection|\Doctrine\Common\Collections\Collection
+     * @param $className
+     * @param bool $inLineIds
+     * @return \Doctrine\Common\Collections\ArrayCollection|EntityInterface
      * @throws \Exception
      */
-    protected function getParentRelationEntities($className)
+    protected function getParentRelationEntity($className, $inLineIds = false)
     {
         $keyType   = $className::getType();
         $entities  = $this->storage->findByType($keyType);
         $index     = $this->relationConfig->getConfig(static::getType() . '.relations.' . $keyType . '.index');
-        $inLineIds = $this->relationConfig->getConfig(static::getType() . '.relations.' . $keyType . '.inLineIds');
 
-        if (!is_null($inLineIds)){
+        if ($inLineIds){
             $valueOfId = $this->getData()[$index];
             $criteria  = Criteria::create()->where(Criteria::expr()->in('sourcedId', explode(',', $valueOfId)));
-        } else {
-            $valueOfId = $this->getData()[$index];
-            $criteria  = Criteria::create()->where(Criteria::expr()->eq('sourcedId', $valueOfId));
+            $results   = $entities->matching($criteria);
+
+            return EntityFactory::createCollection($className, $this->storage, $this->relationConfig, $results);
         }
 
-        $results = $entities->matching($criteria);
+        $valueOfId = $this->getData()[$index];
 
-        return EntityFactory::createCollection($className, $this->storage, $this->relationConfig, $results);
+        return EntityFactory::create($valueOfId, $className, $this->storage, $this->relationConfig);
     }
 
     /**

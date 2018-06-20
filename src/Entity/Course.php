@@ -7,9 +7,9 @@ class Course extends AbstractEntity
     /**
      * @inheritdoc
      */
-    public function getOrgs()
+    public function getOrg()
     {
-        return $this->getParentRelationEntities(Organisation::class);
+        return $this->getParentRelationEntity(Organisation::class);
     }
 
     /** @return  string */

@@ -7,9 +7,9 @@ class Demographic extends AbstractEntity
     /**
      * @inheritdoc
      */
-    public function getUsers()
+    public function getUser()
     {
-        return $this->getParentRelationEntities(User::class);
+        return $this->getParentRelationEntity(User::class);
     }
 
     /** @return  string */
