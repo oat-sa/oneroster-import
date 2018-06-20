@@ -1,5 +1,7 @@
 ## Import CSV files using OneRoster V1 standard
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/6350d516232444d5afa2dad3c7540840)](https://app.codacy.com/app/ionutpad/oneroster-import?utm_source=github.com&utm_medium=referral&utm_content=oat-sa/oneroster-import&utm_campaign=badger)
+
 ###### More Information about the standard can be found here: https://www.imsglobal.org/lis/imsOneRosterv1p0/imsOneRosterCSV-v1p0.html#_Toc421598315
 
 The scope of this repository it's to import the file and validate the fields according to v1 standard.
