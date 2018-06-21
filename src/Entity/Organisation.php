@@ -17,7 +17,7 @@ class Organisation extends AbstractEntity
      */
     public function getUsers()
     {
-        return $this->getChildrenRelationEntities(User::class);
+        return $this->getChildrenRelationEntities(User::class, true);
     }
 
     /**

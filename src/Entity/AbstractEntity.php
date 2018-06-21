@@ -62,15 +62,15 @@ abstract class AbstractEntity implements EntityInterface
 
     /**
      * @param string $className
+     * @param bool $inLineIds
      * @return \Doctrine\Common\Collections\ArrayCollection|\Doctrine\Common\Collections\Collection
      * @throws \Exception
      */
-    protected function getChildrenRelationEntities($className)
+    protected function getChildrenRelationEntities($className, $inLineIds = false)
     {
         $keyType   = $className::getType();
         $entities  = $this->storage->findByType($keyType);
         $index     = $this->relationConfig->getConfig(static::getType() . '.relations.' . $keyType . '.index');
-        $inLineIds = $this->relationConfig->getConfig(static::getType() . '.relations.' . $keyType . '.inLineIds');
 
         if (!is_null($inLineIds)){
             $criteria = Criteria::create()->where(Criteria::expr()->contains($index, $this->id));
