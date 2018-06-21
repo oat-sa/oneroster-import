@@ -6,8 +6,8 @@ use Doctrine\Common\Collections\ArrayCollection;
 use oat\OneRoster\Entity\ClassRoom;
 use oat\OneRoster\Entity\Enrollment;
 use oat\OneRoster\Entity\EntityRepository;
+use oat\OneRoster\Entity\Factory\RelationConfigFactory;
 use oat\OneRoster\Entity\Organisation;
-use oat\OneRoster\Entity\RelationConfig;
 use oat\OneRoster\Entity\User;
 use oat\OneRoster\File\FileHandler;
 use oat\OneRoster\Service\ImportService;
@@ -71,9 +71,7 @@ class ImportServiceTest extends TestCase
     protected function buildEntityRepository($results, $fileHandler)
     {
         $storage          = new InMemoryStorage($results);
-        $pathToSchemaJson = __DIR__ . '/../../config/v1/relations.json';
-        $dataConfig       = json_decode($fileHandler->getContents($pathToSchemaJson), true);
-        $relationConfig   = new RelationConfig($dataConfig);
+        $relationConfig   = (new RelationConfigFactory($fileHandler))->create();
         $entityRepository = new EntityRepository($storage, $relationConfig);
 
         return $entityRepository;
