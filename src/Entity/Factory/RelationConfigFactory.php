@@ -24,7 +24,7 @@ class RelationConfigFactory
      */
     public function create()
     {
-        $pathToSchemaJson = __DIR__ . '/../../config/v1/relations.json';
+        $pathToSchemaJson = __DIR__ . '/../../../config/v1/relations.json';
         $dataConfig       = json_decode($this->fileHandler->getContents($pathToSchemaJson), true);
 
         return new RelationConfig($dataConfig);
