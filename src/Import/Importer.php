@@ -35,6 +35,7 @@ class Importer implements ImporterInterface
                 $result->add($rowWitHeader);
             } catch (\Exception $e) {
                error_log($e->getMessage());
+               error_log($e->getTraceAsString());
             }
         }
 

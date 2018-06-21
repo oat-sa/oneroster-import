@@ -1,0 +1,74 @@
+[
+  {
+    "columnId": "sourcedId",
+    "required": true,
+    "format": "string",
+    "description": "Unique ID for the lineItem."
+  },
+  {
+    "columnId": "status",
+    "required": false,
+    "format": "string",
+    "description": ""
+  },
+  {
+    "columnId": "dateLastModified",
+    "required": false,
+    "format": "datetime",
+    "description": ""
+  },
+  {
+    "columnId": "title",
+    "required": true,
+    "format": "string",
+    "description": ""
+  },
+  {
+    "columnId": "description",
+    "required": false,
+    "format": "string",
+    "description": ""
+  },
+  {
+    "columnId": "assignDate",
+    "required": true,
+    "format": "date",
+    "description": ""
+  },
+  {
+    "columnId": "dueDate",
+    "required": true,
+    "format": "date",
+    "description": ""
+  },
+  {
+    "columnId": "classSourcedId",
+    "required": true,
+    "format": "string",
+    "description": ""
+  },
+  {
+    "columnId": "categorySourcedId",
+    "required": true,
+    "format": "string",
+    "description": ""
+  },
+  {
+    "columnId": "gradingPeriodSourcedId",
+    "required": true,
+    "format": "string",
+    "description": ""
+  },
+  {
+    "columnId": "resultValueMin",
+    "required": true,
+    "format": "float",
+    "description": ""
+  },
+  {
+    "columnId": "resultValueMax",
+    "required": true,
+    "format": "float",
+    "description": ""
+  }
+]

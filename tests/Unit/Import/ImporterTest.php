@@ -1,6 +1,6 @@
 <?php
 
-namespace oat\OneRoster\Tests\Import;
+namespace oat\OneRoster\Tests\Unit\Import;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use oat\OneRoster\Import\Importer;

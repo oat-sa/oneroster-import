@@ -10,16 +10,7 @@ class ImportService
 {
     /** @var array Default CSV controls */
     protected $options = [
-        'version' => 'v1',
-        'availableTypes' => [
-            'orgs',
-            'users',
-            'courses',
-            'classes',
-            'enrollments',
-            'academicSessions',
-            'demographics',
-        ],
+        'version' => 'v1.1',
         'csvControl' => [
             'delimiter' => ',',
             'enclosure' => '"',
@@ -51,7 +42,7 @@ class ImportService
         $this->options = array_merge($this->options, $options);
         $this->validateOptions();
 
-        $importer     = (new ImporterFactory($this->options['version'], $this->fileHandler))->build($type);
+        $importer = (new ImporterFactory($this->options['version'], $this->fileHandler))->build($type);
         $fileResource = $this->fileHandler->open($file);
 
         $lines  = [];
@@ -66,7 +57,6 @@ class ImportService
                 $header = $dataLine;
                 continue;
             }
-
             $lines[] = $dataLine;
         }
 
@@ -85,15 +75,40 @@ class ImportService
     {
         $this->options = array_merge($this->options, $options);
         $this->validateOptions();
-
-        $availableTypes = $this->options['availableTypes'];
         $results = [];
 
-        foreach ($availableTypes as $availableType){
-            $results[$availableType] = $this->import($pathToFolder . $availableType . '.csv',$availableType, $options);
+        $availableTypes = $this->detectAvailableTypes($pathToFolder);
+
+        foreach ($availableTypes as $availableType) {
+            $results[$availableType] = $this->import($pathToFolder . $availableType . '.csv', $availableType, $this->options);
         }
 
         return $results;
+    }
+
+    /**
+     * @param $pathToFolder
+     * @return array
+     * @throws \Exception
+     */
+    private function detectAvailableTypes($pathToFolder)
+    {
+        $types = [];
+        $result = $this->import($pathToFolder . 'manifest.csv', 'manifest', $this->options);
+
+        foreach ($result as $row) {
+            $property = $row['propertyName'];
+            $value    = $row['value'];
+
+            if (strpos($property, 'file.') !== false
+                && $value !== 'absent')
+            {
+                $parts = explode('.', $property);
+                $types[] = end($parts);
+            }
+        }
+
+        return $types;
     }
 
     /**
@@ -101,16 +116,12 @@ class ImportService
      */
     private function validateOptions()
     {
-        if (!isset($this->options['version'])){
+        if (!isset($this->options['version'])) {
             throw new \Exception('Version should be specified as option');
         }
 
-        if (!isset($this->options['csvControl'])){
+        if (!isset($this->options['csvControl'])) {
             throw new \Exception('csvControl should be specified as option');
-        }
-
-        if (!isset($this->options['availableTypes'])){
-            throw new \Exception('availableTypes should be specified as option');
         }
     }
 }

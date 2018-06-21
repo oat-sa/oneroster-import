@@ -1,4 +1,24 @@
 {
+  "classResources": {
+    "relations": {
+      "classes": {
+        "index": "classSourcedId"
+      },
+      "resources": {
+        "index": "resourceSourcedId"
+      }
+    }
+  },
+  "courseResources": {
+    "relations": {
+      "courses": {
+        "index": "courseSourcedId"
+      },
+      "resources": {
+        "index": "resourceSourcedId"
+      }
+    }
+  },
   "orgs": {
     "relations": {
       "classes": {
@@ -23,9 +43,8 @@
       "enrollments": {
         "index": "classSourcedId"
       },
-      "academicSessions":{
-        "index": "termSourcedId",
-        "inLineIds": true
+      "academicSessions": {
+        "index": "termSourcedId"
       }
     }
   },
@@ -37,8 +56,8 @@
       "demographics": {
         "index": "userSourcedId"
       },
-      "enrollments":{
-        "index":"userSourcedId"
+      "enrollments": {
+        "index": "userSourcedId"
       }
     }
   },
@@ -46,6 +65,9 @@
     "relations": {
       "orgs": {
         "index": "orgSourcedId"
+      },
+      "academicSessions": {
+        "index": "schoolYearSourcedId"
       }
     }
   },
@@ -59,6 +81,29 @@
       },
       "users": {
         "index": "userSourcedId"
+      }
+    }
+  },
+  "lineItems": {
+    "relations": {
+      "classes": {
+        "index": "classSourcedId"
+      },
+      "categories": {
+        "index": "categorySourcedId"
+      },
+      "academicSessions": {
+        "index": "gradingPeriodSourcedId"
+      }
+    }
+  },
+  "results": {
+    "relations": {
+      "lineItems": {
+        "index": "lineItemSourcedId"
+      },
+      "users": {
+        "index": "studentSourcedId"
       }
     }
   },

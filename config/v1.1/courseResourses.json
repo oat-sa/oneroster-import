@@ -1,0 +1,38 @@
+[
+  {
+    "columnId": "sourcedId",
+    "required": true,
+    "format": "string",
+    "description": "Unique ID for the course/resource association. SourcedId is used in other files and must be unique across all course resources."
+  },
+  {
+    "columnId": "status",
+    "required": false,
+    "format": "string",
+    "description": "See section 4.13.8 [OneRoster, 17a] for the enumeration list."
+  },
+  {
+    "columnId": "dateLastModified",
+    "required": true,
+    "format": "datetime",
+    "description": "The date that this record was last modified."
+  },
+  {
+    "columnId": "title",
+    "required": false,
+    "format": "string",
+    "description": ""
+  },
+  {
+    "columnId": "courseSourcedId",
+    "required": true,
+    "format": "string",
+    "description": ""
+  },
+  {
+    "columnId": "resourceSourcedId",
+    "required": true,
+    "format": "string",
+    "description": ""
+  }
+]

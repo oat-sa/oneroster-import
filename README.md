@@ -1,15 +1,13 @@
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/d8351b7ac84046198c36ca11c7bdcf45)](https://www.codacy.com/app/ionutpad/oneroster-import?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=oat-sa/oneroster-import&amp;utm_campaign=Badge_Grade)
 [![Codacy Badge](https://api.codacy.com/project/badge/Coverage/d8351b7ac84046198c36ca11c7bdcf45)](https://www.codacy.com/app/ionutpad/oneroster-import?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=oat-sa/oneroster-import&amp;utm_campaign=Badge_Coverage)
-## Import CSV files using OneRoster V1 standard
+## Import CSV files using OneRoster V1.1 standard
 
-###### More Information about the standard can be found here: https://www.imsglobal.org/lis/imsOneRosterv1p0/imsOneRosterCSV-v1p0.html#_Toc421598315
+###### More Information about the standard can be found here:
+http://www.imsglobal.org/oneroster-v11-final-csv-tables
 
 The scope of this repository it's to import the file and validate the fields according to v1 standard.
 The json configuration of fields can be found in /config/v1/ folder
 
-
-> Any other meta property can be added to the csv fallowing the format ext_[your_name_space]_[filed_name]
-> Please note that for the extra meta properties no validation will be applied.
 ##### Import Example
 
 ```php

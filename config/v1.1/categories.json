@@ -1,0 +1,26 @@
+[
+  {
+    "columnId": "sourcedId",
+    "required": true,
+    "format": "string",
+    "description": "Unique ID for the category."
+  },
+  {
+    "columnId": "status",
+    "required": false,
+    "format": "string",
+    "description": ""
+  },
+  {
+    "columnId": "dateLastModified",
+    "required": true,
+    "format": "datetime",
+    "description": "The date that this record was last modified"
+  },
+  {
+    "columnId": "title",
+    "required": true,
+    "format": "string",
+    "description": "The title assigned to the set of lineItems to denote its nature e.g. homework, essays, etc."
+  }
+]

@@ -1,0 +1,86 @@
+[
+  {
+    "columnId": "sourcedId",
+    "required": true,
+    "format": "string",
+    "description": "Unique ID for the class. SourcedId is used in other files and must be unique across all classes."
+  },
+  {
+    "columnId": "status",
+    "required": false,
+    "format": "string",
+    "description": "“active” | “inactive” | “tobedeleted”. A tobedeleted object may be deleted in receiving systems if it already exists"
+  },
+  {
+    "columnId": "dateLastModified",
+    "required": false,
+    "format": "datetime",
+    "description": "The date that this record was last modified."
+  },
+  {
+    "columnId": "title",
+    "required": true,
+    "format": "string",
+    "description": "Name of this class"
+  },
+  {
+    "columnId": "grades",
+    "required": false,
+    "format": "list",
+    "description": "Grade(s) for which the class is attended. The permitted vocabulary is from CEDS (Version 5) and the 'Entry Grade Level' element https://ceds.ed.gov/CEDSElementDetails.aspx?TermId=7100"
+  },
+  {
+    "columnId": "courseSourcedId",
+    "required": false,
+    "format": "string",
+    "description": "SourcedId of the course of which this class is an instance."
+  },
+  {
+    "columnId": "classCode",
+    "required": false,
+    "format": "string",
+    "description": "Human readable code used to help identify this class"
+  },
+  {
+    "columnId": "classType",
+    "required": true,
+    "format": "string",
+    "description": "“homeroom”, “scheduled”"
+  },
+  {
+    "columnId": "location",
+    "required": false,
+    "format": "string",
+    "description": "Human readable description of where the class is physically located"
+  },
+  {
+    "columnId": "schoolSourcedId",
+    "required": true,
+    "format": "string",
+    "description": "SourcedId of the organization which teaches this class"
+  },
+  {
+    "columnId": "termSourcedIds",
+    "required": true,
+    "format": "string",
+    "description": "SourcedId of the academicSessions(s) in which the class is taught."
+  },
+  {
+    "columnId": "subjects",
+    "required": false,
+    "format": "list",
+    "description": "Subject name(s). If more than one subject is needed, use double quotes, and delimit with commas (per RFC 4180):Examples:“chemistry, physics”physics“music, drama, poetry”"
+  },
+  {
+    "columnId": "subjectCodes",
+    "required": false,
+    "format": "list",
+    "description": "Subject codes(s) in machine readable form. If more than one subject code is needed, use double quotes, and separate with commas (per RFC 4180). If the 'subjects' attribute is present the two lists must have the same length and have order significance.The vocabulary is from SCED (School Codes for the Exchange of Data):  http://ceds.ed.gov/ScedCourseCodes.aspx (any commas in the label should be removed)."
+  },
+  {
+    "columnId": "periods",
+    "required": false,
+    "format": "list",
+    "description": "The time slots in the day that the class will be given. If more than one period is needed, use double quotes, and separate with commas (per RFC 4180).Examples: 1; '1,3,5'"
+  }
+]

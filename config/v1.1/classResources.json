@@ -1,0 +1,38 @@
+[
+  {
+    "columnId": "sourcedId",
+    "required": true,
+    "format": "string",
+    "description": "Unique ID for the class/resource association. SourcedId is used in other files and must be unique across all class resources."
+  },
+  {
+    "columnId": "status",
+    "required": false,
+    "format": "string",
+    "description": "See section 4.13.8 [OneRoster, 17a] for the enumeration list."
+  },
+  {
+    "columnId": "dateLastModified",
+    "required": true,
+    "format": "datetime",
+    "description": "The date that this record was last modified."
+  },
+  {
+    "columnId": "title",
+    "required": false,
+    "format": "string",
+    "description": "Name of the related class."
+  },
+  {
+    "columnId": "classSourcedId",
+    "required": true,
+    "format": "string",
+    "description": "SourcedId of the reference Class."
+  },
+  {
+    "columnId": "resourceSourcedId",
+    "required": true,
+    "format": "string",
+    "description": "SourcedId of the Resource associated with the Class."
+  }
+]

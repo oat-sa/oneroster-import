@@ -1,6 +1,6 @@
 <?php
 
-namespace oat\OneRoster\Tests\Entity;
+namespace oat\OneRoster\Tests\Unit\Entity;
 
 use oat\OneRoster\Entity\AbstractEntity;
 use PHPUnit\Framework\TestCase;

@@ -13,29 +13,21 @@ class ImportServiceTest extends TestCase
      */
     public function testImportMultiple()
     {
-        $service = new ImportService($this->mockFileHandler());
-
-        $result = $service->importMultiple('/path/to/a/folder/');
-
-        $this->assertInternalType('array', $result);
-    }
-
-    /**
-     * @return FileHandler
-     */
-    protected function mockFileHandler()
-    {
         $file = $this->getMockBuilder(FileHandler::class)->disableOriginalConstructor()->getMock();
 
         $file
             ->method('readCsvLine')
             ->willReturnOnConsecutiveCalls(
-               ['header1', 'header2', 'header3', 'header4'], ['value1', 'value2', 'value3', 'value4']
+                ['propertyName', 'value'],['file.orgs','bulk'], false, ['header1', 'header2', 'header3', 'header4'], ['value1', 'value2', 'value3', 'value4']
             );
         $file
             ->method('getContents')
             ->willReturn(json_encode([]));
 
-        return $file;
+        $service = new ImportService($file);
+
+        $result = $service->importMultiple('/path/to/a/folder/');
+
+        $this->assertInternalType('array', $result);
     }
 }

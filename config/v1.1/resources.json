@@ -1,0 +1,56 @@
+[
+  {
+    "columnId": "sourcedId",
+    "required": true,
+    "format": "string",
+    "description": ""
+  },
+  {
+    "columnId": "status",
+    "required": false,
+    "format": "string",
+    "description": ""
+  },
+  {
+    "columnId": "dateLastModified",
+    "required": false,
+    "format": "datetime",
+    "description": ""
+  },
+  {
+    "columnId": "vendorResourceId",
+    "required": true,
+    "format": "string",
+    "description": ""
+  },
+  {
+    "columnId": "title",
+    "required": false,
+    "format": "string",
+    "description": ""
+  },
+  {
+    "columnId": "roles",
+    "required": false,
+    "format": "string",
+    "description": ""
+  },
+  {
+    "columnId": "importance",
+    "required": false,
+    "format": "string",
+    "description": ""
+  },
+  {
+    "columnId": "vendorId",
+    "required": false,
+    "format": "string",
+    "description": ""
+  },
+  {
+    "columnId": "applicationId",
+    "required": false,
+    "format": "string",
+    "description": ""
+  }
+]

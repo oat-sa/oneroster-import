@@ -23,7 +23,7 @@ class ImportServiceTest extends TestCase
     {
         $fileHandler = new FileHandler();
         $importService = new ImportService($fileHandler);
-        $results = $importService->importMultiple(__DIR__ . '/../../data/samples/oneRoster1.0/');
+        $results = $importService->importMultiple(__DIR__ . '/../../data/samples/OneRosterv1p1BaseCSV/');
 
         $entityRepo    = $this->buildEntityRepository($results, $fileHandler);
         $organisations = $entityRepo->getAll(Organisation::class);

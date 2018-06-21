@@ -4,6 +4,8 @@ namespace oat\OneRoster\Schema;
 
 class Validator
 {
+    const DATE_FORMAT = 'Y-m-d';
+    const DATE_TIME_FORMAT = 'Y-m-d H:i:s';
     /** @var array */
     private $schema = array();
 
@@ -64,8 +66,9 @@ class Validator
                 $value = boolval($value);
             }
 
-            if ($format === 'date') {
-                $value = \DateTime::createFromFormat('Y-m-d', $value);
+            if ($format === 'date' || $format === 'datetime') {
+                $dateFormat = $format === 'datetime' ? static::DATE_TIME_FORMAT : static::DATE_FORMAT;
+                $value = \DateTime::createFromFormat($dateFormat, $value);
                 if ($value === false && $this->isFieldRequired($columnIdentifier)) {
                     throw FormatException::create($columnIdentifier, $format, gettype($value));
                 }
@@ -107,5 +110,10 @@ class Validator
         $requiresFields = $this->extractRequiresFields();
 
         return in_array($field, $requiresFields);
+    }
+
+    public function __debugInfo()
+    {
+        return $this->schema;
     }
 }

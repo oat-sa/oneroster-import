@@ -1,6 +1,6 @@
 <?php
 
-namespace oat\OneRoster\Tests\Import;
+namespace oat\OneRoster\Tests\Unit\Import;
 
 use oat\OneRoster\File\FileHandler;
 use oat\OneRoster\Import\ImporterFactory;
@@ -11,7 +11,7 @@ class ImporterFactoryTest extends TestCase
 {
     public function testBuild()
     {
-        $importerFactory = new ImporterFactory('v1',$this->mockFileHandler());
+        $importerFactory = new ImporterFactory('v1.1',$this->mockFileHandler());
 
         $this->assertInstanceOf(ImporterInterface::class, $importerFactory->build('orgs'));
     }
@@ -19,7 +19,7 @@ class ImporterFactoryTest extends TestCase
     public function testBuildInvalid()
     {
         $this->expectException(\Exception::class);
-        $importerFactory = new ImporterFactory('v1',$this->mockFileHandler());
+        $importerFactory = new ImporterFactory('v1.1',$this->mockFileHandler());
         $importerFactory->build('invalid-type');
     }
 

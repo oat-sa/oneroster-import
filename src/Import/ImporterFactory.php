@@ -14,13 +14,20 @@ class ImporterFactory
     private $fileHandler;
 
     private $types = [
+        'manifest' => 'manifest.json',
+        'categories' => 'categories.json',
+        'classResources' => 'classResources.json',
+        'courseResources' => 'courseResources.json',
         'orgs' => 'orgs.json',
         'classes' => 'classes.json',
         'users' => 'users.json',
         'enrollments' => 'enrollments.json',
+        'lineItems' => 'lineItems.json',
         'courses' => 'courses.json',
         'academicSessions' => 'academicSessions.json',
         'demographics' => 'demographics.json',
+        'resources' => 'resources.json',
+        'results' => 'results.json',
     ];
 
     /**

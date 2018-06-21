@@ -1,6 +1,6 @@
 <?php
 
-namespace oat\OneRoster\Tests\Entity\Factory;
+namespace oat\OneRoster\Tests\Unit\Entity\Factory;
 
 use oat\OneRoster\Entity\Factory\RelationConfigFactory;
 use oat\OneRoster\Entity\RelationConfig;

@@ -1,0 +1,14 @@
+[
+  {
+    "columnId": "propertyName",
+    "required": true,
+    "format": "string",
+    "description": ""
+  },
+  {
+    "columnId": "value",
+    "required": true,
+    "format": "string",
+    "description": ""
+  }
+]

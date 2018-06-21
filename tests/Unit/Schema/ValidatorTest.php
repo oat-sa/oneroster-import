@@ -1,6 +1,6 @@
 <?php
 
-namespace oat\OneRoster\Tests\Schema;
+namespace oat\OneRoster\Tests\Unit\Schema;
 
 use oat\OneRoster\Schema\FormatException;
 use oat\OneRoster\Schema\RequiredException;
@@ -21,7 +21,7 @@ class ValidatorTest extends TestCase
         $result = $validator->validate([
             'string-required' => '12345',
             'string-not-required' => '54321',
-            'date-required' => '2017-05-06',
+            'date-required' => '2017-05-06 12:01:05',
             'boolean-required' => 'TRUE',
         ]);
 
@@ -39,14 +39,14 @@ class ValidatorTest extends TestCase
         $result = $validator->validate([
             'string-required' => '12345',
             'string-not-required' => '54321',
-            'date-required' => '2017-05-06',
+            'date-required' => '2017-05-06 12:01:05',
             'boolean-required' => 'TRUE',
         ]);
 
         $this->assertInternalType('array', $result);
         $this->assertSame('12345', $result['string-required']);
         $this->assertSame('54321', $result['string-not-required']);
-        $this->assertSame('2017-05-06', $result['date-required']->format('Y-m-d'));
+        $this->assertSame('2017-05-06 12:01:05', $result['date-required']->format('Y-m-d H:i:s'));
         $this->assertSame(true, $result['boolean-required']);
     }
 
@@ -60,7 +60,7 @@ class ValidatorTest extends TestCase
         $validator = $this->getValidator();
         $validator->validate([
             'string-not-required' => '54321',
-            'date-required' => '2017-05-06',
+            'date-required' => '2017-05-06 12:01:05',
             'boolean-required' => 'TRUE',
         ]);
     }
@@ -76,7 +76,7 @@ class ValidatorTest extends TestCase
         $validator = $this->getValidator();
         $validator->validate([
             'string-required' => 45698,
-            'date-required' => '2017-05-06',
+            'date-required' => '2017-05-06 12:01:05',
             'boolean-required' => 'TRUE',
         ]);
     }
@@ -97,12 +97,12 @@ class ValidatorTest extends TestCase
             [
                 'columnId' => 'date-required',
                 'required' => true,
-                'format' => 'date',
+                'format' => 'datetime',
             ],
             [
                 'columnId' => 'date-not-required',
                 'required' => false,
-                'format' => 'date',
+                'format' => 'datetime',
             ],
             [
                 'columnId' => 'boolean-required',

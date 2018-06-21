@@ -1,0 +1,62 @@
+[
+  {
+    "columnId": "sourcedId",
+    "required": true,
+    "format": "string",
+    "description": "Enter the number that has been assigned to the course by the district or by the district SIS. In this and other files, you use this number to assign users to a course. This number is a primary identifier; it uniquely identifies the course and will not change."
+  },
+  {
+    "columnId": "status",
+    "required": false,
+    "format": "string",
+    "description": "See section 4.13.8 [OneRoster, 17a] for the enumeration list."
+  },
+  {
+    "columnId": "dateLastModified",
+    "required": false,
+    "format": "datetime",
+    "description": "The date that this record was last modified."
+  },
+  {
+    "columnId": "schoolYearSourcedId",
+    "required": false,
+    "format": "string",
+    "description": "SourcedId of an AcademicSession with type of \"schoolYear\"."
+  },
+  {
+    "columnId": "title",
+    "required": true,
+    "format": "string",
+    "description": "Name of the course"
+  },
+  {
+    "columnId": "courseCode",
+    "required": false,
+    "format": "string",
+    "description": "Human readable course code"
+  },
+  {
+    "columnId": "grades",
+    "required": false,
+    "format": "list",
+    "description": "Grade(s) for which the class is attended. The permitted vocabulary is from CEDS (Version 5) for the 'Entry Grade Level' element https://ceds.ed.gov/CEDSElementDetails.aspx?TermId=7100"
+  },
+  {
+    "columnId": "orgSourcedId",
+    "required": true,
+    "format": "string",
+    "description": "SourcedId of an org to which this course belongs."
+  },
+  {
+    "columnId": "subjects",
+    "required": false,
+    "format": "string",
+    "description": "Subject name(s). If more than one subject is needed, use double quotes, and separate with commas (per RFC 4180):Examples:“chemistry, physics”physics“music, drama, poetry”"
+  },
+  {
+    "columnId": "subjectCodes",
+    "required": false,
+    "format": "string",
+    "description": "Subject codes(s) in machine readable form. If the 'subjects' attribute is present then the subjects and subjectCodes lists must have the same length and have order significance.The vocabulary is from SCED (School Codes for the Exchange of Data) (Version 4) for the \"SCED Course Code\" field:  http://nces.ed.gov/forum/SCED.asp"
+  }
+]

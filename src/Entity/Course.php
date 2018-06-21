@@ -12,6 +12,14 @@ class Course extends AbstractEntity
         return $this->getParentRelationEntity(Organisation::class);
     }
 
+    /**
+     * @inheritdoc
+     */
+    public function getAcademicCourse()
+    {
+        return $this->getParentRelationEntity(AcademicSession::class);
+    }
+
     /** @return  string */
     static public function getType()
     {

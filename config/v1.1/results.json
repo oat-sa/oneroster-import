@@ -1,0 +1,56 @@
+[
+  {
+    "columnId": "sourcedId",
+    "required": true,
+    "format": "string",
+    "description": ""
+  },
+  {
+    "columnId": "status",
+    "required": false,
+    "format": "string",
+    "description": ""
+  },
+  {
+    "columnId": "dateLastModified",
+    "required": true,
+    "format": "datetime",
+    "description": ""
+  },
+  {
+    "columnId": "lineItemSourcedId",
+    "required": true,
+    "format": "string",
+    "description": ""
+  },
+  {
+    "columnId": "studentSourcedId",
+    "required": true,
+    "format": "string",
+    "description": ""
+  },
+  {
+    "columnId": "scoreStatus",
+    "required": true,
+    "format": "string",
+    "description": ""
+  },
+  {
+    "columnId": "score",
+    "required": true,
+    "format": "string",
+    "description": ""
+  },
+  {
+    "columnId": "scoreDate",
+    "required": true,
+    "format": "date",
+    "description": ""
+  },
+  {
+    "columnId": "comment",
+    "required": false,
+    "format": "string",
+    "description": ""
+  }
+]
