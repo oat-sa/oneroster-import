@@ -1,4 +1,5 @@
 {
+  "name": "oat-sa/oneroster-import",
   "type": "library",
   "description": "OneRoster PHP Import",
   "authors": [
