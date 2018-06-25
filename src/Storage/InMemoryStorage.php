@@ -6,6 +6,9 @@ use Doctrine\Common\Collections\ArrayCollection;
 
 class InMemoryStorage extends ArrayCollection implements StorageInterface
 {
+    /** @var array */
+    private $imports;
+
     /**
      * @param string $typeOfEntity
      * @return ArrayCollection|mixed|null
@@ -22,11 +25,18 @@ class InMemoryStorage extends ArrayCollection implements StorageInterface
      */
     public function findByTypeAndId($typeOfEntity, $id)
     {
+        $key = $typeOfEntity . '_' . $id;
+
+        if (isset($this->imports[$key])) {
+            return $this->imports[$key];
+        }
+
         /** @var ArrayCollection $collection */
         $collection = $this->get($typeOfEntity);
 
         foreach ($collection as $item) {
             if ($item['sourcedId'] === $id) {
+                $this->imports[$key] = $item;
                 return $item;
             }
         }
