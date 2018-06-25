@@ -72,7 +72,7 @@ abstract class AbstractEntity implements EntityInterface
         $entities  = $this->storage->findByType($keyType);
         $index     = $this->relationConfig->getConfig(static::getType() . '.relations.' . $keyType . '.index');
 
-        if (!is_null($inLineIds)){
+        if ($inLineIds){
             $criteria = Criteria::create()->where(Criteria::expr()->contains($index, $this->id));
         } else {
             $criteria = Criteria::create()->where(Criteria::expr()->eq($index, $this->id));

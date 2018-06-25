@@ -7,9 +7,6 @@ use PHPUnit\Framework\TestCase;
 
 class AbstractEntityTest extends TestCase
 {
-    /**
-     * @throws \ReflectionException
-     */
     public function testGetData()
     {
         $stub = $this->getMockBuilder(AbstractEntity::class)->getMock();
