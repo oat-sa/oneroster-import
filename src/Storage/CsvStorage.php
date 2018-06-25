@@ -48,9 +48,8 @@ class CsvStorage implements StorageInterface
      */
     public function findByTypeAndId($typeOfEntity, $id)
     {
-        $key = $typeOfEntity . '_' . $id;
-        if (isset($this->imports[$key])) {
-            return $this->imports[$key];
+        if (isset($this->imports[$typeOfEntity])) {
+            return $this->imports[$typeOfEntity]->get($id);
         }
 
         if (!isset($this->imports[$typeOfEntity])) {
@@ -59,7 +58,6 @@ class CsvStorage implements StorageInterface
 
         foreach ($this->imports[$typeOfEntity] as $item) {
             if ($item['sourcedId'] === $id) {
-                $this->imports[$key] = $item;
                 return $item;
             }
         }

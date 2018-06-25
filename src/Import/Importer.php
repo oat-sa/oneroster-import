@@ -32,7 +32,12 @@ class Importer implements ImporterInterface
                 $rowWitHeader = array_combine($header, $row);
                 $rowWitHeader = $this->schemaValidator->validate($rowWitHeader);
 
-                $result->add($rowWitHeader);
+                if (isset($rowWitHeader['sourcedId'])){
+                    $result->set($rowWitHeader['sourcedId'], $rowWitHeader);
+                } else {
+                    $result->add($rowWitHeader);
+                }
+
             } catch (\Exception $e) {
                error_log($e->getMessage());
                error_log($e->getTraceAsString());
