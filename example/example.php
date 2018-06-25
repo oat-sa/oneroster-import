@@ -12,9 +12,9 @@ require_once __DIR__ . '/../vendor/autoload.php';
 
 $fileHandler = new FileHandler();
 $importService = new ImportService($fileHandler);
-$results = $importService->importMultiple(__DIR__ . '/../data/samples/oneRoster1.0/');
+$importService->setPathToFolder(__DIR__ . '/../data/samples/OneRosterv1p1BaseCSV/');
 
-$storage = new InMemoryStorage($results);
+$storage = new \oat\OneRoster\Storage\CsvStorage($importService);
 
 $relationConfig = (new RelationConfigFactory($fileHandler))->create();
 

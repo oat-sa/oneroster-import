@@ -21,6 +21,9 @@ class ImportService
     /** @var FileHandler */
     private $fileHandler;
 
+    /** @var string */
+    private $pathToFolder;
+
     /**
      * ImportService constructor.
      * @param $fileHandler
@@ -84,6 +87,22 @@ class ImportService
         }
 
         return $results;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPathToFolder(): string
+    {
+        return $this->pathToFolder;
+    }
+
+    /**
+     * @param string $pathToFolder
+     */
+    public function setPathToFolder(string $pathToFolder)
+    {
+        $this->pathToFolder = $pathToFolder;
     }
 
     /**
