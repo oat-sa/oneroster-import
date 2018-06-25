@@ -10,6 +10,9 @@ class CsvStorage implements StorageInterface
     /** @var ImportService */
     private $importService;
 
+    /** @var array */
+    private $imports;
+
     /**
      * CsvStorage constructor.
      * @param ImportService $importService
@@ -27,9 +30,13 @@ class CsvStorage implements StorageInterface
      */
     public function findByType($typeOfEntity)
     {
-        $result = $this->importService->import($this->importService->getPathToFolder() . $typeOfEntity .'.csv', $typeOfEntity);
+        if (isset($this->imports[$typeOfEntity])) {
+            return $this->imports[$typeOfEntity];
+        }
 
-        return $result;
+        $this->imports[$typeOfEntity] = $this->importService->import($this->importService->getPathToFolder() . $typeOfEntity . '.csv', $typeOfEntity);
+
+        return $this->imports[$typeOfEntity];
     }
 
     /**
@@ -41,10 +48,14 @@ class CsvStorage implements StorageInterface
      */
     public function findByTypeAndId($typeOfEntity, $id)
     {
-        $result = $this->importService->import($this->importService->getPathToFolder() . $typeOfEntity .'.csv', $typeOfEntity);
+        if (isset($this->imports[$typeOfEntity])) {
+            return $this->imports[$typeOfEntity];
+        } else {
+            $this->imports[$typeOfEntity] = $this->importService->import($this->importService->getPathToFolder() . $typeOfEntity . '.csv', $typeOfEntity);
+        }
 
-        return $result->filter(function ($entry) use ($id){
-            if($entry['sourcedId'] === $id){
+        return $this->imports[$typeOfEntity]->filter(function ($entry) use ($id) {
+            if ($entry['sourcedId'] === $id) {
                 return $entry;
             }
         });

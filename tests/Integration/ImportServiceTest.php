@@ -11,6 +11,7 @@ use oat\OneRoster\Entity\Organisation;
 use oat\OneRoster\Entity\User;
 use oat\OneRoster\File\FileHandler;
 use oat\OneRoster\Service\ImportService;
+use oat\OneRoster\Storage\CsvStorage;
 use oat\OneRoster\Storage\InMemoryStorage;
 use PHPUnit\Framework\TestCase;
 
@@ -19,13 +20,31 @@ class ImportServiceTest extends TestCase
     /**
      * @throws \Exception
      */
-    public function testImport()
+    public function testImportWithInMemory()
     {
         $fileHandler = new FileHandler();
         $importService = new ImportService($fileHandler);
         $results = $importService->importMultiple(__DIR__ . '/../../data/samples/OneRosterv1p1BaseCSV/');
 
-        $entityRepo    = $this->buildEntityRepository($results, $fileHandler);
+        $entityRepo = $this->buildEntityRepository($results, $fileHandler);
+        $this->assertStructure($entityRepo);
+    }
+
+    /**
+     * @throws \Exception
+     */
+    public function testImportWithCsvStorage()
+    {
+        $fileHandler = new FileHandler();
+        $importService = new ImportService($fileHandler);
+        $importService->setPathToFolder(__DIR__ . '/../../data/samples/OneRosterv1p1BaseCSV/');
+
+        $entityRepo = $this->buildEntityRepositoryWithCsvStorage($importService, $fileHandler);
+        $this->assertStructure($entityRepo);
+    }
+
+    protected function assertStructure(EntityRepository $entityRepo)
+    {
         $organisations = $entityRepo->getAll(Organisation::class);
         $this->assertOrganisationCollection($organisations);
 
@@ -71,6 +90,15 @@ class ImportServiceTest extends TestCase
     protected function buildEntityRepository($results, $fileHandler)
     {
         $storage          = new InMemoryStorage($results);
+        $relationConfig   = (new RelationConfigFactory($fileHandler))->create();
+        $entityRepository = new EntityRepository($storage, $relationConfig);
+
+        return $entityRepository;
+    }
+
+    protected function buildEntityRepositoryWithCsvStorage($importService, $fileHandler)
+    {
+        $storage          = new CsvStorage($importService);
         $relationConfig   = (new RelationConfigFactory($fileHandler))->create();
         $entityRepository = new EntityRepository($storage, $relationConfig);
 

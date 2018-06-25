@@ -8,7 +8,7 @@ http://www.imsglobal.org/oneroster-v11-final-csv-tables
 The scope of this repository it's to import the file and validate the fields according to v1 standard.
 The json configuration of fields can be found in /config/v1/ folder
 
-##### Import Example
+##### Setup InMemoryStorage
 
 ```php
 $fileHandler = new FileHandler();
@@ -16,6 +16,16 @@ $importService = new ImportService($fileHandler);
 $results = $importService->importMultiple(__DIR__ . '/../data/samples/oneRoster1.0/');
 
 $storage = new InMemoryStorage($results);
+```
+
+##### Setup CsvStorage
+
+```php
+$fileHandler = new FileHandler();
+$importService = new ImportService($fileHandler);
+$importService->setPathToFolder(__DIR__ . '/../../data/samples/OneRosterv1p1BaseCSV/');
+
+$storage = new CsvStorage($importService);
 ```
 
 ##### Examples of using entities after import.
