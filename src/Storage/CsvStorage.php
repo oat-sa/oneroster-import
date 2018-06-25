@@ -43,21 +43,19 @@ class CsvStorage implements StorageInterface
      * @param string $typeOfEntity [orgs,classes..]
      *
      * @param $id
-     * @return ArrayCollection
+     * @return array
      * @throws \Exception
      */
     public function findByTypeAndId($typeOfEntity, $id)
     {
-        if (isset($this->imports[$typeOfEntity])) {
-            return $this->imports[$typeOfEntity];
-        } else {
+        if (!isset($this->imports[$typeOfEntity])) {
             $this->imports[$typeOfEntity] = $this->importService->import($this->importService->getPathToFolder() . $typeOfEntity . '.csv', $typeOfEntity);
         }
 
-        return $this->imports[$typeOfEntity]->filter(function ($entry) use ($id) {
-            if ($entry['sourcedId'] === $id) {
-                return $entry;
+        foreach ($this->imports[$typeOfEntity] as $item) {
+            if ($item['sourcedId'] === $id) {
+                return $item;
             }
-        });
+        }
     }
 }

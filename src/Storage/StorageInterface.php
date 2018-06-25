@@ -17,7 +17,7 @@ interface StorageInterface
      * @param string $typeOfEntity  [orgs,classes..]
      *
      * @param $id
-     * @return ArrayCollection
+     * @return array
      */
     public function findByTypeAndId($typeOfEntity, $id);
 }

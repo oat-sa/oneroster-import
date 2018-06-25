@@ -18,17 +18,17 @@ class InMemoryStorage extends ArrayCollection implements StorageInterface
     /**
      * @param string $typeOfEntity
      * @param $id
-     * @return ArrayCollection|static
+     * @return array
      */
     public function findByTypeAndId($typeOfEntity, $id)
     {
         /** @var ArrayCollection $collection */
         $collection = $this->get($typeOfEntity);
 
-        return $collection->filter(function ($entry) use ($id){
-            if($entry['sourcedId'] === $id){
-                return $entry;
+        foreach ($collection as $item) {
+            if ($item['sourcedId'] === $id) {
+                return $item;
             }
-        });
+        }
     }
 }

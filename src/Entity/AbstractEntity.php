@@ -21,11 +21,11 @@ abstract class AbstractEntity implements EntityInterface
     abstract static public function getType();
 
     /**
-     * @return \Doctrine\Common\Collections\ArrayCollection
+     * @return array
      */
     public function getData()
     {
-        return $this->storage->findByTypeAndId(static::getType(), $this->id)->first();
+        return $this->storage->findByTypeAndId(static::getType(), $this->id);
     }
 
     /**
