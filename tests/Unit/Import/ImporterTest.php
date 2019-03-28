@@ -2,9 +2,8 @@
 
 namespace oat\OneRoster\Tests\Unit\Import;
 
-use Doctrine\Common\Collections\ArrayCollection;
 use oat\OneRoster\Import\Importer;
-use oat\OneRoster\Schema\UniqueEntityException;
+use oat\OneRoster\Schema\NotUniqueEntityException;
 use oat\OneRoster\Schema\Validator;
 use PHPUnit\Framework\TestCase;
 
@@ -33,9 +32,9 @@ class ImporterTest extends TestCase
     }
 
 
-    public function testImportForUniqueEntityException(): void
+    public function testImportForNotUniqueEntityException(): void
     {
-        $this->expectException(UniqueEntityException::class);
+        $this->expectException(NotUniqueEntityException::class);
         $this->expectExceptionMessage('Entity with sourcedId 12345 already exist.');
 
         $validatorMock = $this->createMock(Validator::class);

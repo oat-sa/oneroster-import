@@ -3,7 +3,7 @@
 namespace oat\OneRoster\Import;
 
 use Doctrine\Common\Collections\ArrayCollection;
-use oat\OneRoster\Schema\UniqueEntityException;
+use oat\OneRoster\Schema\NotUniqueEntityException;
 use oat\OneRoster\Schema\Validator;
 
 class Importer implements ImporterInterface
@@ -30,7 +30,7 @@ class Importer implements ImporterInterface
 
             if (isset($rowWitHeader['sourcedId'])){
                 if ($result->containsKey($rowWitHeader['sourcedId'])) {
-                    throw new UniqueEntityException($rowWitHeader['sourcedId']);
+                    throw new NotUniqueEntityException($rowWitHeader['sourcedId']);
                 }
 
                 $result->set($rowWitHeader['sourcedId'], $rowWitHeader);

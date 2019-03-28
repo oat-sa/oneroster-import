@@ -2,7 +2,7 @@
 
 namespace oat\OneRoster\Schema;
 
-class UniqueEntityException extends \RuntimeException
+class NotUniqueEntityException extends \RuntimeException
 {
     public function __construct(string $sourcedId)
     {
