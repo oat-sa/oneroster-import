@@ -3,6 +3,7 @@
 namespace oat\OneRoster\Import;
 
 use Doctrine\Common\Collections\ArrayCollection;
+use oat\OneRoster\Schema\NotUniqueEntityException;
 use oat\OneRoster\Schema\Validator;
 
 class Importer implements ImporterInterface
@@ -19,28 +20,22 @@ class Importer implements ImporterInterface
         $this->schemaValidator = $schemaValidator;
     }
 
-    /**
-     * @param array $header
-     * @param array $data
-     * @return ArrayCollection
-     */
-    public function import(array $header, array $data)
+    public function import(array $header, array $data): ArrayCollection
     {
         $result = new ArrayCollection();
-        foreach ($data as $index => $row){
-            try {
-                $rowWitHeader = array_combine($header, $row);
-                $rowWitHeader = $this->schemaValidator->validate($rowWitHeader);
 
-                if (isset($rowWitHeader['sourcedId'])){
-                    $result->set($rowWitHeader['sourcedId'], $rowWitHeader);
-                } else {
-                    $result->add($rowWitHeader);
+        foreach ($data as $index => $row){
+            $rowWitHeader = array_combine($header, $row);
+            $rowWitHeader = $this->schemaValidator->validate($rowWitHeader);
+
+            if (isset($rowWitHeader['sourcedId'])){
+                if ($result->containsKey($rowWitHeader['sourcedId'])) {
+                    throw new NotUniqueEntityException($rowWitHeader['sourcedId']);
                 }
 
-            } catch (\Exception $e) {
-               error_log($e->getMessage());
-               error_log($e->getTraceAsString());
+                $result->set($rowWitHeader['sourcedId'], $rowWitHeader);
+            } else {
+                $result->add($rowWitHeader);
             }
         }
 
