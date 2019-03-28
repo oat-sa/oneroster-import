@@ -11,5 +11,5 @@ interface ImporterInterface
      * @param array $data
      * @return ArrayCollection
      */
-    public function import(array $header, array $data);
+    public function import(array $header, array $data): ArrayCollection;
 }

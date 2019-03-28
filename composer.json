@@ -1,31 +1,35 @@
 {
-  "name": "oat-sa/oneroster-import",
-  "type": "library",
-  "description": "OneRoster PHP Import",
-  "authors": [
-    {
-      "name": "Ionut Padurariu",
-      "email": "ionut@taotesting.com"
+    "name": "oat-sa/oneroster-import",
+    "license": "GPL-2.0-only",
+    "type": "library",
+    "description": "OneRoster PHP Import",
+    "authors": [
+        {
+            "name": "Ionut Padurariu",
+            "email": "ionut@taotesting.com"
+        },
+        {
+            "name": "Gyula Szucs",
+            "email": "gyula@taotesting.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-4": {
+            "oat\\OneRoster\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "oat\\OneRoster\\Tests\\": "tests/"
+        }
+    },
+    "require": {
+        "php": "^7.2",
+        "doctrine/collections": "^1.6"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^7.2",
+        "codacy/coverage": "dev-master"
     }
-  ],
-  "minimum-stability": "dev",
-  "autoload": {
-    "psr-4": {
-      "oat\\OneRoster\\": "src/"
-    }
-  },
-  "autoload-dev": {
-    "psr-4": {
-      "oat\\OneRoster\\Tests\\": "tests/"
-    }
-  },
-
-  "require": {
-    "php": "^7.1",
-    "doctrine/collections": "^1.5"
-  },
-  "require-dev": {
-    "phpunit/phpunit": "^7.2",
-    "codacy/coverage": "dev-master"
-  }
 }

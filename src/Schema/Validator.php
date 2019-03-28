@@ -4,10 +4,10 @@ namespace oat\OneRoster\Schema;
 
 class Validator
 {
-    const DATE_FORMAT = 'Y-m-d';
-    const DATE_TIME_FORMAT = 'Y-m-d H:i:s';
-    /** @var array */
-    private $schema = array();
+    private const DATE_FORMAT = 'Y-m-d';
+    private const DATE_TIME_FORMAT = 'Y-m-d H:i:s';
+
+    private $schema;
 
     /**
      * Validator constructor.
@@ -24,7 +24,7 @@ class Validator
      * @throws RequiredException
      * @throws FormatException
      */
-    public function validate(array $dataRow)
+    public function validate(array $dataRow): array
     {
         $this->validateRequiredFields($dataRow);
         return $this->validateFormat($dataRow);
@@ -34,7 +34,7 @@ class Validator
      * @param $dataRow
      * @throws RequiredException
      */
-    protected function validateRequiredFields($dataRow)
+    protected function validateRequiredFields($dataRow): void
     {
         $requiresFields = $this->extractRequiresFields();
 
@@ -51,7 +51,7 @@ class Validator
      * @return array
      * @throws FormatException
      */
-    protected function validateFormat(array $dataRow)
+    protected function validateFormat(array $dataRow): array
     {
         foreach ($this->schema as $itemSchema) {
             $columnIdentifier = $itemSchema['columnId'];
@@ -88,7 +88,7 @@ class Validator
     /**
      * @return array
      */
-    protected function extractRequiresFields()
+    protected function extractRequiresFields(): array
     {
         $required = [];
 
@@ -105,11 +105,11 @@ class Validator
      * @param $field
      * @return bool
      */
-    protected function isFieldRequired($field)
+    protected function isFieldRequired($field): bool
     {
         $requiresFields = $this->extractRequiresFields();
 
-        return in_array($field, $requiresFields);
+        return in_array($field, $requiresFields, true);
     }
 
     public function __debugInfo()
